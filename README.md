@@ -105,3 +105,19 @@ Natural units with `4Għ = 1` throughout, so the Ryu–Takayanagi formula
 `S = Area(γ)/(4Għ)` reduces to `S = Area = throat length`. Persistent homology is computed
 with ripser (`maxdim=1` for Rungs 1–2, `maxdim=2` for Rung 3) and barcodes are compared
 with the Wasserstein distance from persim.
+
+## Reproduce
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python rung1.py && python rung2.py && python rung3.py     # each tees to rung*_results.txt
+```
+
+## Figures
+
+| Rung 1 — Bell pair barcodes | Rung 2 — thermal dynamics | Rung 3 — SYK / JT H1 |
+|---|---|---|
+| ![rung1](rung1_barcodes.png) | ![rung2](rung2_plots.png) | ![rung3](rung3_h1_comparison.png) |
+
+Paper draft: [`docs/ER_EPR_Paper_Draft.pdf`](docs/ER_EPR_Paper_Draft.pdf). The rung 3 result is an honest null; see `rung3_results.txt`.
