@@ -10,6 +10,20 @@ runs persistent homology on both, and compares the resulting barcodes with a Was
 distance. Every script tees its full output to a `*_results.txt` file, so the committed
 results are verbatim runs, not summaries written after the fact.
 
+## Run it
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+python rung1.py        # Bell pair vs Ryu-Takayanagi throat, seconds  -> rung1_results.txt, rung1_barcodes.png
+python rung2.py        # thermofield double, beta sweep, ~minutes      -> rung2_results.txt, rung2_plots.png
+python rung3.py        # SYK / JT, dense diagonalisation, the slow one -> rung3_results.txt, rung3_*.png
+```
+
+Each script prints its Wasserstein distances and null comparison and rewrites its own
+`*_results.txt` and figure in place; the committed ones are the real runs (rung 3 is an honest
+null). The three figures are in [Figures](#figures) below; the write-up is
+[`docs/ER_EPR_Paper_Draft.pdf`](docs/ER_EPR_Paper_Draft.pdf).
+
 ## The ladder
 
 ### Rung 1 — Proof of concept (`rung1.py`)
